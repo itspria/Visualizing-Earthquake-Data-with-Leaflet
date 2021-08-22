@@ -1,6 +1,6 @@
 //url for the earthquake data
-//url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
-url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson";
+
+url="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson";
 
 //Creating the map object
 var myMap = L.map("map", {   
@@ -42,12 +42,25 @@ d3.json(url).then(function(data) {
             var color = GetColor(feature.geometry.coordinates[2]);
             return L.circle(latlng, {
                 fillOpacity: 0.7, 
-                color: color,
+                color: 'grey',
                 weight: 1,               
                 fillColor: color,
                 radius: feature.properties.mag * 30000}).bindPopup(`<h3>${feature.properties.title}</h3><hr><I>Magnitude: ${feature.properties.mag}</I><br><I>Depth: ${feature.geometry.coordinates[2]}</I>`) ;  
         }}).addTo(myMap);
 
-        //TODO - Add legend
+     
+     var legend = L.control({position: 'bottomright'});
+          legend.onAdd = function(map) {
+          var div = L.DomUtil.create("div", "legend");
+          div.innerHTML += "<h4>Depth Categories</h4>";
+          div.innerHTML += "<i style='background: greenyellow'></i><span>Less than 10</span><br>";
+          div.innerHTML += "<i style='background: yellow'></i><span>10-30</span><br>";
+          div.innerHTML += "<i style='background: gold'></i><span>30-50</span><br>";
+          div.innerHTML += "<i style='background: orange'></i><span>50-70</span><br>";
+          div.innerHTML += "<i style='background: coral'></i><span>70-90</span><br>";
+          div.innerHTML += "<i style='background: red'></i><span>Greater than 90</span><br>";
+          return div;
+        };
+     legend.addTo(myMap);
   });
   
