@@ -67,6 +67,7 @@ function GetColor(depth)
        return 'greenyellow';
     
 }
+var legend = L.control({position: 'bottomleft'});
 
 // Getting GeoJSON earthquakes data
 d3.json(url).then(function(data) {
@@ -85,7 +86,7 @@ d3.json(url).then(function(data) {
                 radius: feature.properties.mag * 30000}).bindPopup(`<h3>${feature.properties.title}</h3><hr><I>Magnitude: ${feature.properties.mag}</I><br><I>Depth: ${feature.geometry.coordinates[2]}</I>`) ;  
         }}).addTo(earthquakeGrp);
           
-     var legend = L.control({position: 'bottomleft'});
+     
           legend.onAdd = function(map) {
           var div = L.DomUtil.create("div", "legend");
           div.innerHTML += "<h3>Depth Categories</h3><hr>";
@@ -102,6 +103,21 @@ d3.json(url).then(function(data) {
      earthquakeGrp.addTo(myMap);
    
   });
+
+//Events to show/hide legend
+myMap.on('overlayadd', function(eventLayer){
+     console.log("ADD", eventLayer.name)
+     if (eventLayer.name === 'Earthquakes'){
+         myMap.addControl(legend);
+     } 
+ });
+ 
+myMap.on('overlayremove', function(eventLayer){
+     console.log("Remove", eventLayer.name)
+     if (eventLayer.name === 'Earthquakes'){
+          myMap.removeControl(legend);
+     } 
+ });
   
 // Retrieve Tectonic Plates 
 d3.json(tectonicurl).then(function(data) {
