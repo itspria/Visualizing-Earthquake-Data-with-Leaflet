@@ -1,10 +1,10 @@
-### Visualizing Data with Leaflet
-#### Background
+## Visualizing Data with Leaflet
+### Background
 The USGS is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment; and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes.
 
 This repo has a visualization done from some of the data from their website.
 
-#### Visualization
+### Visualization
 1. Get data set
 
 The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visited the USGS GeoJSON Feed page and picked a data set to visualize (all earthquakes in past 7 days).
