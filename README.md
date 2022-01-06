@@ -27,4 +27,4 @@ Created a map using Leaflet that plots all of the earthquakes from yotheur data 
 
 - Map is deployed on github pages
 
-![Plots](https://github.com/itspria/Visualizing-Earthquake-Data-with-Leaflet/blob/main/images/Map1.PNG)
+![Plots](https://github.com/itspria/leaflet-challenge/blob/main/images/Map1.PNG)
