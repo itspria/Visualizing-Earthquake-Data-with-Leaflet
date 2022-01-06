@@ -15,9 +15,9 @@ Created a map using Leaflet that plots all of the earthquakes from yotheur data 
 
 - Data markers reflect the magnitude of the earthquake by their size and and depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger and earthquakes with greater depth should appear darker in color.
 
-- Includes popups that provide additional information about the earthquake when a marker is clicked.
+- Included popups that provide additional information about the earthquake when a marker is clicked.
 
-- Includes a legend that will provide context for map data.
+- Included a legend that will provide context for map data.
 
 - The map has 5 base maps: 1- Street 2- Satellite 3- Grayscale 4- Outdoors 5- Dark
 
@@ -26,3 +26,5 @@ Created a map using Leaflet that plots all of the earthquakes from yotheur data 
 - Map also has a layer control to to toggle between options.
 
 - Map is deployed on github pages
+
+![Plots](https://github.com/itspria/Visualizing-Earthquake-Data-with-Leaflet/blob/main/images/Map1.PNG)
